@@ -1,32 +1,43 @@
-
-
 .app {
   max-width: 400px;
-  margin:0.auto;
+  margin: 0auto;
   text-align: center;
 }
 .app label {
   text-align: left;
   display: block;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
 .app h1 {
-  font-size: 20px;
+  font-size: 40px;
   color: blue;
-  margin-bottom : 30px;
+  margin-bottom: 30px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
 }
 .app h2 {
   font-size: 20px;
-  color:red;
-  margin-bottom : 30px;
+  color: red;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family:fantasy;
 }
 .app h3 {
   font-size: 20px;
-  color: red;
-  margin-bottom : 30px;
+  color: green;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.app h4 {
+  font-size: 20px;
+  color: purple;
+  margin-bottom: 30px;
+  text-align: right;
+  
 }
 
-
-.app input{
+.app input {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
@@ -34,35 +45,48 @@
   box-sizing: border-box;
   display: block;
 }
-.app button{
+.app button {
   
-  color: green;
   border: 0;
-  padding : 8px;
+  padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  
+
 }
-.card{
+.card {
   background-color: gray;
-
   min-width: 100px;
   min-height: 150px;
-  text-indent: -9999px;
+  cursor: pointer;
+  margin: 10px;
 }
-.greencard{
-  background-color:green;
-
+.greencard {
+  background-color: green;
   min-width: 100px;
   min-height: 150px;
-  text-indent: -9999px;
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  
 }
-.redcard{
+.redcard {
+  
   background-color: red;
-
   min-width: 100px;
   min-height: 150px;
-  text-indent: -9999px;
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  
 }
-.bg-red{background-color:red}
-.bg-green{background-color:green}
 
+.retry{
+  background-color:green;
+}
+.exit{
+  background-color:wheat;
+}
+.start{
+  background-color: green;
+}
