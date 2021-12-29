@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const App = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState();
   const [selectedNum, setSelectedNum] = useState(0);
   const [count, setCount] = useState(0);
+  const [numArr, setNumArr] = useState([1,2,3,4,5,6,7,8,9]);
+
+  
+  
+   const randomNum = () => {
+    let n = numArr.sort(() => Math.random()-0.5);
+    console.log("Random Num", numArr);
+    setNumArr(n);
+  };
   
   
  const [isForm,setIsForm]=useState(true);
@@ -15,12 +24,17 @@ const App = () => {
     setIsForm(false)
   };
 
+  useEffect(() => {
+    randomNum();
+  },[]);
+
+
   return (
     <div className="app">
       <h1> Welcome To Playing a Card Game</h1>
       <div>
         {
-          isForm?(<> <form onSubmit={handleSubmit}>
+          isForm?(<> {" "} <form onSubmit={handleSubmit}>
             <label>Enter Your Name:</label>
             <input
             
@@ -38,7 +52,7 @@ const App = () => {
             />
             <button  className="start" type="submit">Start</button>
             </form>
-    </>):(<> <div>
+    </>):(<> <div> {" "}
         <h2>
           You Have Only 3 Attempt To Win The Game!!!!
         </h2>
@@ -47,16 +61,13 @@ const App = () => {
           <h4>Player name is: {name} </h4>
 
         <button>
-          
-          {}
-          {}
-          {count >3 ? (
-            <h2>You Lose!!!</h2>
-          ) : (
-            selectedNum == number && <h3>Congratulations, You Won !!!</h3>
+          { selectedNum == number?(
+            <h3> Congratulations, You Won!!!</h3>
+          ):(
+            count==3 && <h2>You Lose!!!</h2>
           )}
           
-          {[5, 7, 4, 3, 2, 1, 8, 6, 9].map((item) => (
+          {numArr.map((item) => (
             <button
               class={`card
                ${
@@ -67,10 +78,10 @@ const App = () => {
                    : "redcard"
                }`}
               onClick={() => {
-                if(count<3)
+                if(count<3) {
                 setSelectedNum(item);
                 setCount(count + 1);
-                
+                } 
                 
               }}
             >
@@ -83,6 +94,7 @@ const App = () => {
           onClick={() => {
             setSelectedNum();
             setCount(0);
+            randomNum();
             
           }}
         >
@@ -96,17 +108,16 @@ const App = () => {
             setSelectedNum();
             setCount(0);
             setIsForm(true);
+            randomNum();
           }}
         >
           Exit
         </button>
-        </div></>)
-        }
-            
-     
-      </div>
-     
-    </div>
+        </div>
+        </>
+        )}
+        </div>
+     </div>
   );
 };
 export default App;
